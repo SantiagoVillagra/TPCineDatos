@@ -1,0 +1,164 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DBFA04F7-186E-C210-BE2F-E4EACD50001C}|Cine proyecto.csproj|c:\\users\\svens\\onedrive\\escritorio\\cine proyecto\\presentacion\\consulta6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DBFA04F7-186E-C210-BE2F-E4EACD50001C}|Cine proyecto.csproj|solutionrelative:presentacion\\consulta6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBFA04F7-186E-C210-BE2F-E4EACD50001C}|Cine proyecto.csproj|c:\\users\\svens\\onedrive\\escritorio\\cine proyecto\\presentacion\\consulta6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBFA04F7-186E-C210-BE2F-E4EACD50001C}|Cine proyecto.csproj|solutionrelative:presentacion\\consulta6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBFA04F7-186E-C210-BE2F-E4EACD50001C}|Cine proyecto.csproj|C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\presentacion\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DBFA04F7-186E-C210-BE2F-E4EACD50001C}|Cine proyecto.csproj|solutionrelative:presentacion\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBFA04F7-186E-C210-BE2F-E4EACD50001C}|Cine proyecto.csproj|c:\\users\\svens\\onedrive\\escritorio\\cine proyecto\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBFA04F7-186E-C210-BE2F-E4EACD50001C}|Cine proyecto.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBFA04F7-186E-C210-BE2F-E4EACD50001C}|Cine proyecto.csproj|c:\\users\\svens\\onedrive\\escritorio\\cine proyecto\\presentacion\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBFA04F7-186E-C210-BE2F-E4EACD50001C}|Cine proyecto.csproj|solutionrelative:presentacion\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3887D23F-D884-47F9-823F-02E8B3F4B81E}|Cine proyecto.csproj|C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\presentacion\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3887D23F-D884-47F9-823F-02E8B3F4B81E}|Cine proyecto.csproj|solutionrelative:presentacion\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBFA04F7-186E-C210-BE2F-E4EACD50001C}|Cine proyecto.csproj|c:\\users\\svens\\onedrive\\escritorio\\cine proyecto\\dao\\accesodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBFA04F7-186E-C210-BE2F-E4EACD50001C}|Cine proyecto.csproj|solutionrelative:dao\\accesodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBFA04F7-186E-C210-BE2F-E4EACD50001C}|Cine proyecto.csproj|c:\\users\\svens\\onedrive\\escritorio\\cine proyecto\\dao\\cinedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBFA04F7-186E-C210-BE2F-E4EACD50001C}|Cine proyecto.csproj|solutionrelative:dao\\cinedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBFA04F7-186E-C210-BE2F-E4EACD50001C}|Cine proyecto.csproj|c:\\users\\svens\\onedrive\\escritorio\\cine proyecto\\servicios\\cineservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBFA04F7-186E-C210-BE2F-E4EACD50001C}|Cine proyecto.csproj|solutionrelative:servicios\\cineservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-26T17:20:44.454Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\Presentacion\\Form1.cs",
+              "RelativeDocumentMoniker": "Presentacion\\Form1.cs",
+              "ToolTip": "C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\Presentacion\\Form1.cs",
+              "RelativeToolTip": "Presentacion\\Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-26T16:43:35.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\Presentacion\\Form1.cs",
+              "RelativeDocumentMoniker": "Presentacion\\Form1.cs",
+              "ToolTip": "C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\Presentacion\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Presentacion\\Form1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-26T16:43:01.197Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Consulta6.cs",
+              "DocumentMoniker": "C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\Presentacion\\Consulta6.cs",
+              "RelativeDocumentMoniker": "Presentacion\\Consulta6.cs",
+              "ToolTip": "C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\Presentacion\\Consulta6.cs",
+              "RelativeToolTip": "Presentacion\\Consulta6.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAmwHEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-26T16:38:02.582Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Consulta6.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\Presentacion\\Consulta6.cs",
+              "RelativeDocumentMoniker": "Presentacion\\Consulta6.cs",
+              "ToolTip": "C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\Presentacion\\Consulta6.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Presentacion\\Consulta6.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-25T04:30:35.247Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "cineServicio.cs",
+              "DocumentMoniker": "C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\Servicios\\cineServicio.cs",
+              "RelativeDocumentMoniker": "Servicios\\cineServicio.cs",
+              "ToolTip": "C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\Servicios\\cineServicio.cs",
+              "RelativeToolTip": "Servicios\\cineServicio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-25T04:27:36.283Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "cineDao.cs",
+              "DocumentMoniker": "C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\Dao\\cineDao.cs",
+              "RelativeDocumentMoniker": "Dao\\cineDao.cs",
+              "ToolTip": "C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\Dao\\cineDao.cs",
+              "RelativeToolTip": "Dao\\cineDao.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-25T04:20:37.163Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AccesoDatos.cs",
+              "DocumentMoniker": "C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\Dao\\AccesoDatos.cs",
+              "RelativeDocumentMoniker": "Dao\\AccesoDatos.cs",
+              "ToolTip": "C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\Dao\\AccesoDatos.cs",
+              "RelativeToolTip": "Dao\\AccesoDatos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-25T04:09:38.76Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\Presentacion\\Form1.cs",
+              "RelativeDocumentMoniker": "Presentacion\\Form1.cs",
+              "ToolTip": "C:\\Users\\svens\\OneDrive\\Escritorio\\Cine proyecto\\Presentacion\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Presentacion\\Form1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-25T04:06:23.689Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

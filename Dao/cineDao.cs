@@ -52,6 +52,18 @@ namespace Cine_proyecto.Dao
             return acceso.ConsultarBD("SELECT idGenero, nombre FROM Generos ORDER BY nombre");
         }
 
+        // Consulta 5 (Matias): Filtro ID porcentaje de ocupación de una función
+        public DataTable OcupacionFuncion(int idFuncion)
+        {
+            string sql = @"
+        EXEC pa_OcupacionFuncion @idFuncion";
+
+            List<Parametro> parametros = new List<Parametro>();
+            parametros.Add(new Parametro("@idFuncion", idFuncion));
+
+            return acceso.ConsultarBD(sql, parametros);
+        }
+
         // Consultas 3 a 6: se agregan acá
     }
 }

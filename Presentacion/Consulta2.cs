@@ -55,5 +55,10 @@ namespace Cine_proyecto.Presentacion
         {
             this.Close();
         }
+
+        private void Consulta2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

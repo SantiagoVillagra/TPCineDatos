@@ -37,12 +37,12 @@
             btnLimpiar = new Button();
             btnSalir = new Button();
             dgvResultados = new DataGridView();
-            lblResultados = new Label();
             colCliente = new DataGridViewTextBoxColumn();
             colFacturas = new DataGridViewTextBoxColumn();
             colEntradas = new DataGridViewTextBoxColumn();
             colPeliculas = new DataGridViewTextBoxColumn();
             colImporteTotal = new DataGridViewTextBoxColumn();
+            lblResultados = new Label();
             ((System.ComponentModel.ISupportInitialize)nudCantidadPeliculas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudCantidadEntradas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvResultados).BeginInit();
@@ -138,15 +138,6 @@
             dgvResultados.Size = new Size(776, 150);
             dgvResultados.TabIndex = 8;
             // 
-            // lblResultados
-            // 
-            lblResultados.AutoSize = true;
-            lblResultados.Location = new Point(12, 167);
-            lblResultados.Name = "lblResultados";
-            lblResultados.Size = new Size(64, 15);
-            lblResultados.TabIndex = 9;
-            lblResultados.Text = "Resultados";
-            // 
             // colCliente
             // 
             colCliente.DataPropertyName = "cliente";
@@ -182,6 +173,15 @@
             colImporteTotal.Name = "colImporteTotal";
             colImporteTotal.ReadOnly = true;
             // 
+            // lblResultados
+            // 
+            lblResultados.AutoSize = true;
+            lblResultados.Location = new Point(12, 167);
+            lblResultados.Name = "lblResultados";
+            lblResultados.Size = new Size(64, 15);
+            lblResultados.TabIndex = 9;
+            lblResultados.Text = "Resultados";
+            // 
             // Consulta2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -199,6 +199,7 @@
             Controls.Add(nudCantidadPeliculas);
             Name = "Consulta2";
             Text = "Consulta2";
+            Load += Consulta2_Load;
             ((System.ComponentModel.ISupportInitialize)nudCantidadPeliculas).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudCantidadEntradas).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvResultados).EndInit();

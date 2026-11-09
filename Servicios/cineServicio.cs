@@ -42,10 +42,19 @@ namespace Cine_proyecto.Servicios
                 cantidadPeliculas, cantidadEntradas);
         }
 
+        // Consulta 5 (Matias): porcentaje de ocupación de una función
+        public DataTable OcupacionFuncion(int idFuncion)
+        {
+            return dao.OcupacionFuncion(idFuncion);
+        }
+
         // Para llenar el ComboBox de géneros
         public DataTable ObtenerGeneros()
         {
             return acceso.ConsultarBD("SELECT idGenero, nombre FROM Generos ORDER BY nombre");
         }
+
+
+       
     }
 }

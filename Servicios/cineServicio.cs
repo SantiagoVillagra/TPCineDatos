@@ -9,6 +9,7 @@ namespace Cine_proyecto.Servicios
     internal class cineServicio
     {
         private readonly AccesoDatos acceso = new AccesoDatos();
+        private readonly cineDao dao = new cineDao();
 
         // Consulta 1: películas/mes con recaudación sobre el promedio
         public DataTable RecaudacionSobrePromedio(DateTime inicio, DateTime fin, int? idGenero, decimal? montoMinimo)
@@ -30,6 +31,15 @@ namespace Cine_proyecto.Servicios
             parametros.Add(new Parametro("@montoMin", (object?)montoMinimo ?? DBNull.Value));
 
             return acceso.ConsultarBD(sql, parametros);
+        }
+
+        // Consulta 2 (Jose): análisis de clientes
+        public DataTable AnalizarComprasClientes(
+            int cantidadPeliculas,
+            int cantidadEntradas)
+        {
+            return dao.AnalizarComprasClientes(
+                cantidadPeliculas, cantidadEntradas);
         }
 
         // Para llenar el ComboBox de géneros

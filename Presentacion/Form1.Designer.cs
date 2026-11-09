@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             consulta6btn = new Button();
+            consulta2btn = new Button();
             SuspendLayout();
             // 
             // consulta6btn
@@ -41,11 +42,22 @@
             consulta6btn.UseVisualStyleBackColor = true;
             consulta6btn.Click += consulta6btn_Click;
             // 
+            // consulta2btn
+            // 
+            consulta2btn.Location = new Point(98, 183);
+            consulta2btn.Name = "consulta2btn";
+            consulta2btn.Size = new Size(141, 30);
+            consulta2btn.TabIndex = 1;
+            consulta2btn.Text = "Consulta 2";
+            consulta2btn.UseVisualStyleBackColor = true;
+            consulta2btn.Click += consulta2btn_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(consulta2btn);
             Controls.Add(consulta6btn);
             Name = "Form1";
             Text = "Form1";
@@ -55,5 +67,6 @@
         #endregion
 
         private Button consulta6btn;
+        private Button consulta2btn;
     }
 }

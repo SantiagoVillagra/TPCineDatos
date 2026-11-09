@@ -31,6 +31,21 @@ namespace Cine_proyecto.Dao
             return acceso.ConsultarBD(sql, parametros);
         }
 
+        // Consulta 2 (Jose): análisis de clientes con compras recurrentes
+        public DataTable AnalizarComprasClientes(int cantidadPeliculas, int cantidadEntradas)
+        {
+            string sql = @"EXEC dbo.pa_AnalizarComprasClientes
+                    @cantidadPeliculas,
+                    @cantidadEntradas";
+
+            List<Parametro> parametros = new List<Parametro>();
+
+            parametros.Add(new Parametro("@cantidadPeliculas", cantidadPeliculas));
+            parametros.Add(new Parametro("@cantidadEntradas", cantidadEntradas));
+
+            return acceso.ConsultarBD(sql, parametros);
+        }
+
         // Para llenar el ComboBox de géneros
         public DataTable ObtenerGeneros()
         {

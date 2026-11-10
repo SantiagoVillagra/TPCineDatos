@@ -1,4 +1,5 @@
 ﻿using Cine_proyecto.Dao;
+using Cine_proyecto.Negocio;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -54,7 +55,25 @@ namespace Cine_proyecto.Servicios
             return acceso.ConsultarBD("SELECT idGenero, nombre FROM Generos ORDER BY nombre");
         }
 
+        public List<DgvConsulta1> TraerConsulta1(int mes, int anio)
+        {
+            DataTable respuesta = acceso.ConsultarBD($"EXEC sp_RendimientoSalas @mes = {mes}, @anio = {anio}");
+            List<DgvConsulta1> lConsulta1 = new List<DgvConsulta1>();
 
-       
+            foreach (DataRow r in respuesta.Rows)
+            {
+                DgvConsulta1 filaConsulta = new DgvConsulta1();
+                filaConsulta.NumeroSala = (int)r[0];
+                filaConsulta.TipoSala = (string)r[1];
+                filaConsulta.CantFunciones = (int)r[2];
+                filaConsulta.EntradasVendidas = (int)r[3];
+                filaConsulta.Promedioentradas = (decimal)r[4];
+
+                lConsulta1.Add(filaConsulta);
+            }
+
+            return lConsulta1;
+        }
+
     }
 }

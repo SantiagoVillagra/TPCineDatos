@@ -2,6 +2,7 @@
 using Cine_proyecto.Negocio;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Text;
 
@@ -12,49 +13,7 @@ namespace Cine_proyecto.Servicios
         private readonly AccesoDatos acceso = new AccesoDatos();
         private readonly cineDao dao = new cineDao();
 
-        // Consulta 1: películas/mes con recaudación sobre el promedio
-        public DataTable RecaudacionSobrePromedio(DateTime inicio, DateTime fin, int? idGenero, decimal? montoMinimo)
-        {
-            string sql = @"
-                WITH Mensual AS (
-                    SELECT * FROM dbo.fn_RecaudacionMensualPeliculasFiltrada(@inicio, @fin, @idGenero, @montoMin)
-                )
-                SELECT Pelicula, Anio, Mes, TotalEntradasVendidas, MontoTotalRecaudado
-                FROM Mensual
-                WHERE MontoTotalRecaudado > (SELECT AVG(MontoTotalRecaudado) FROM Mensual)
-                ORDER BY MontoTotalRecaudado DESC";
-
-            List<Parametro> parametros = new List<Parametro>();
-            parametros.Add(new Parametro("@inicio", inicio));
-            parametros.Add(new Parametro("@fin", fin));
-            // null de C# no es NULL de SQL: hay que mandar DBNull.Value
-            parametros.Add(new Parametro("@idGenero", (object?)idGenero ?? DBNull.Value));
-            parametros.Add(new Parametro("@montoMin", (object?)montoMinimo ?? DBNull.Value));
-
-            return acceso.ConsultarBD(sql, parametros);
-        }
-
-        // Consulta 2 (Jose): análisis de clientes
-        public DataTable AnalizarComprasClientes(
-            int cantidadPeliculas,
-            int cantidadEntradas)
-        {
-            return dao.AnalizarComprasClientes(
-                cantidadPeliculas, cantidadEntradas);
-        }
-
-        // Consulta 5 (Matias): porcentaje de ocupación de una función
-        public DataTable OcupacionFuncion(int idFuncion)
-        {
-            return dao.OcupacionFuncion(idFuncion);
-        }
-
-        // Para llenar el ComboBox de géneros
-        public DataTable ObtenerGeneros()
-        {
-            return acceso.ConsultarBD("SELECT idGenero, nombre FROM Generos ORDER BY nombre");
-        }
-
+        // Consulta 1 (Daniel): 
         public List<DgvConsulta1> TraerConsulta1(int mes, int anio)
         {
             DataTable respuesta = acceso.ConsultarBD($"EXEC sp_RendimientoSalas @mes = {mes}, @anio = {anio}");
@@ -75,5 +34,47 @@ namespace Cine_proyecto.Servicios
             return lConsulta1;
         }
 
+
+
+        // Consulta 2 (Jose): análisis de clientes
+        public DataTable AnalizarComprasClientes(
+            int cantidadPeliculas,
+            int cantidadEntradas)
+        {
+            return dao.AnalizarComprasClientes(
+                cantidadPeliculas, cantidadEntradas);
+        }
+
+
+
+        // Consulta 5 (Matias): porcentaje de ocupación de una función
+        public DataTable OcupacionFuncion(int idFuncion)
+        {
+            return dao.OcupacionFuncion(idFuncion);
+        }
+
+ 
+
+   
+
+        // Consulta 6 (Santiago): películas/mes con recaudación sobre el promedio
+
+        public DataTable ObtenerGenerosService()
+        {
+            return dao.ObtenerGeneros();
+        }
+        public DataTable RecaudacionSobrePromedio(DateTime inicio, DateTime fin, int? idGenero, decimal? montoMinimo)
+        {
+
+            if (inicio.Date > fin.Date)
+            {
+                MessageBox.Show("La fecha 'Desde' no puede ser mayor que la fecha 'Hasta'.",
+                            "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+
+
+            return dao.RecaudacionSobrePromedio(inicio.Date, fin.Date.AddDays(1), idGenero, montoMinimo);
+        }
     }
 }

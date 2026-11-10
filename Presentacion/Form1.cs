@@ -31,5 +31,11 @@ namespace Cine_proyecto
             Consulta5 frmC5 = new Consulta5();
             frmC5.ShowDialog();
         }
+
+        private void btnConsulta1_Click(object sender, EventArgs e)
+        {
+            Consulta1 frmC1 =  new Consulta1();
+            frmC1.ShowDialog();
+        }
     }
 }

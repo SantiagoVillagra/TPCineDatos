@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             salirBtn = new Button();
             consultaBtn = new Button();
             limpiarBtn = new Button();
@@ -114,13 +114,13 @@
             // dgvResultados
             // 
             dgvResultados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvResultados.BorderStyle = BorderStyle.None;
             dgvResultados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvResultados.Columns.AddRange(new DataGridViewColumn[] { colPelicula, colAnio, colMes, colEntradas, colMonto });
             dgvResultados.Location = new Point(31, 250);
             dgvResultados.Name = "dgvResultados";
             dgvResultados.Size = new Size(737, 150);
             dgvResultados.TabIndex = 7;
-            dgvResultados.CellContentClick += dgvResultados_CellContentClick;
             // 
             // colPelicula
             // 
@@ -132,8 +132,8 @@
             // colAnio
             // 
             colAnio.DataPropertyName = "anio";
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colAnio.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colAnio.DefaultCellStyle = dataGridViewCellStyle5;
             colAnio.FillWeight = 10F;
             colAnio.HeaderText = "Año";
             colAnio.Name = "colAnio";
@@ -141,8 +141,8 @@
             // colMes
             // 
             colMes.DataPropertyName = "mes";
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colMes.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colMes.DefaultCellStyle = dataGridViewCellStyle6;
             colMes.FillWeight = 8F;
             colMes.HeaderText = "Mes";
             colMes.Name = "colMes";
@@ -150,9 +150,9 @@
             // colEntradas
             // 
             colEntradas.DataPropertyName = "TotalEntradasVendidas";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Format = "N0";
-            colEntradas.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Format = "N0";
+            colEntradas.DefaultCellStyle = dataGridViewCellStyle7;
             colEntradas.FillWeight = 18F;
             colEntradas.HeaderText = "Entradas vendidas";
             colEntradas.Name = "colEntradas";
@@ -160,9 +160,9 @@
             // colMonto
             // 
             colMonto.DataPropertyName = "MontoTotalRecaudado";
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "c2";
-            colMonto.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "c2";
+            colMonto.DefaultCellStyle = dataGridViewCellStyle8;
             colMonto.FillWeight = 24F;
             colMonto.HeaderText = "Monto recaudado";
             colMonto.Name = "colMonto";

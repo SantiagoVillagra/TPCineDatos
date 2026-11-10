@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Text;
@@ -29,46 +30,43 @@ namespace Cine_proyecto.Presentacion
 
         private void Consulta6_Load(object sender, EventArgs e)
         {
-            DataTable generos = servicio.ObtenerGeneros();
+            try
+            {
+                DataTable generos = servicio.ObtenerGenerosService();
 
-            // Fila extra al principio que representa "sin filtro"
-            DataRow filaTodos = generos.NewRow();
-            filaTodos["idGenero"] = 0;
-            filaTodos["nombre"] = "(Todos los géneros)";
-            generos.Rows.InsertAt(filaTodos, 0);
+                // Fila extra al principio que representa "sin filtro"
+                DataRow filaTodos = generos.NewRow();
+                filaTodos["idGenero"] = 0;
+                filaTodos["nombre"] = "(Todos los géneros)";
+                generos.Rows.InsertAt(filaTodos, 0);
 
-            cboGenero.DataSource = generos;
-            cboGenero.DisplayMember = "nombre";
-            cboGenero.ValueMember = "idGenero";
-            cboGenero.SelectedIndex = 0;
+                cboGenero.DataSource = generos;
+                cboGenero.DisplayMember = "nombre";
+                cboGenero.ValueMember = "idGenero";
+                cboGenero.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron cargar los géneros:\n" + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void consultaBtn_Click(object sender, EventArgs e)
         {
+            // 1) Leer lo que el usuario cargó en pantalla
             DateTime desde = dtpDesde.Value.Date;
             DateTime hasta = dtpHasta.Value.Date;
 
-
-
-
-            if (desde > hasta)
-            {
-                MessageBox.Show("La fecha 'Desde' no puede ser mayor que 'Hasta'.",
-                    "Rango inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dtpDesde.Focus();
-                return;
-            }
-
             int? idGenero = null;
             if (cboGenero.SelectedValue != null && Convert.ToInt32(cboGenero.SelectedValue) > 0)
-            {
                 idGenero = Convert.ToInt32(cboGenero.SelectedValue);
-            }
 
+            // Convertir el texto a número es tarea de la pantalla; si el valor es válido o no, lo decide el servicio
             decimal? monto = null;
             if (!string.IsNullOrWhiteSpace(montoTxt.Text))
             {
-                if (!decimal.TryParse(montoTxt.Text.Trim(), out decimal m) || m < 0)
+                if (!decimal.TryParse(montoTxt.Text.Trim(), out decimal m))
                 {
                     MessageBox.Show("Ingrese un monto mínimo válido (número mayor o igual a 0).",
                         "Dato incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -79,15 +77,17 @@ namespace Cine_proyecto.Presentacion
                 monto = m;
             }
 
-            // La función usa fecha fin EXCLUSIVA: sumamos 1 día para incluir el 'hasta' elegido
-            DataTable tabla = servicio.RecaudacionSobrePromedio(desde, hasta.AddDays(1), idGenero, monto);
-            dgvResultados.DataSource = tabla;
+           
+                DataTable tabla = servicio.RecaudacionSobrePromedio(desde, hasta, idGenero, monto);
+                dgvResultados.DataSource = tabla;
 
-            if (tabla.Rows.Count == 0)
-            {
-                MessageBox.Show("No se encontraron resultados.", "Sin resultados",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                if (tabla.Rows.Count == 0)
+                {
+                    MessageBox.Show("No se encontraron resultados.", "Sin resultados",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            
+
         }
 
         private void limpiarBtn_Click(object sender, EventArgs e)
@@ -108,10 +108,6 @@ namespace Cine_proyecto.Presentacion
                 this.Close();
             }
         }
-
-        private void dgvResultados_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
     }
 }
+

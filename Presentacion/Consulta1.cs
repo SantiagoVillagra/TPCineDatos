@@ -82,7 +82,7 @@ namespace Cine_proyecto.Presentacion
             if (validar())
             {
                 int mes = (int)cBoxMes.SelectedValue;
-                int anio = (int)cBoxAnio.SelectedValue;
+                int anio = (int)cBoxAnio.SelectedItem;
 
                 List<DgvConsulta1> lConsulta1 = servicio.TraerConsulta1(mes, anio);
 

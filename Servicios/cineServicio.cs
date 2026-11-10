@@ -45,6 +45,12 @@ namespace Cine_proyecto.Servicios
                 cantidadPeliculas, cantidadEntradas);
         }
 
+        //consulta 3 (Valentina): Analisis de rendimiento anual de peliculas
+        public DataTable ObtenerRendimientoPeliculas(int anio, string rendimiento)
+        {
+            return dao.ObtenerRendimientoPeliculas(anio, rendimiento);
+        }
+
         // Consulta 4 (Martina): butacas de salas 2D/3D sin reservas ni facturas
         public DataTable ButacasSinUso()
         {

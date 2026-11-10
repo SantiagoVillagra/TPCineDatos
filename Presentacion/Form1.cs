@@ -43,5 +43,11 @@ namespace Cine_proyecto
             Consulta4 frmC4 = new Consulta4();
             frmC4.ShowDialog();
         }
+
+        private void btnConsulta3_Click(object sender, EventArgs e)
+        {
+            Consulta3 ventana = new Consulta3();
+            ventana.ShowDialog();
+        }
     }
 }

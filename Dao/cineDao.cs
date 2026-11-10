@@ -27,6 +27,48 @@ namespace Cine_proyecto.Dao
             return acceso.ConsultarBD(sql, parametros);
         }
 
+        //consulta 3 (Valentina): Analisis de rendimiento anual de peliculas
+        public DataTable ObtenerRendimientoPeliculas(int anio, string rendimientoCbo)
+        {
+            string sql = @"
+        SELECT Pelicula, [Tipo de Sala] TipoSala, [Entradas vendidas] EntradasVendidas, [Recaudacion Total] RecaudacionTotal, Rendimiento
+        FROM (
+                SELECT Pelicula, TipoSala AS [Tipo de Sala], COUNT(idDetalleFactura) AS [Entradas vendidas], SUM(PrecioUnitario) AS [Recaudacion Total], 'Alto Rendimiento' AS Rendimiento
+                FROM VentasPeliculaSala
+                WHERE YEAR(fechaHoraEmision) = @anio
+                GROUP BY Pelicula, TipoSala
+                HAVING SUM(PrecioUnitario) > (SELECT AVG(SubRecaudacion)
+                                              FROM (SELECT SUM(PrecioUnitario) SubRecaudacion
+                                                    FROM VentasPeliculaSala
+                                                    WHERE YEAR(fechaHoraEmision) = @anio
+                                                    GROUP BY idPelicula, idTipoSala
+                                                   ) PromedioGeneral
+                                             )
+                UNION
+                SELECT Pelicula, TipoSala AS [Tipo de Sala], COUNT(idDetalleFactura) AS [Entradas vendidas], SUM(PrecioUnitario) AS [Recaudacion Total], 'Bajo Rendimiento' AS Rendimiento
+                FROM VentasPeliculaSala
+                WHERE YEAR(fechaHoraEmision) = @anio
+                GROUP BY Pelicula, TipoSala
+                HAVING SUM(PrecioUnitario) <= (SELECT AVG(SubRecaudacion)
+                                               FROM (SELECT SUM(PrecioUnitario) AS SubRecaudacion
+                                                     FROM VentasPeliculaSala
+                                                     WHERE YEAR(fechaHoraEmision) = @anio
+                                                     GROUP BY idPelicula, idTipoSala
+                                                     ) PromedioGeneral
+                                               )
+        ) AS Resultado
+        WHERE @rendimiento = 'Todos' OR Rendimiento = @rendimiento
+        ORDER BY Rendimiento;";
+
+            List<Parametro> parametros = new List<Parametro>
+    {
+        new Parametro("@anio", anio),
+        new Parametro("@rendimiento", rendimientoCbo)
+    };
+
+            return acceso.ConsultarBD(sql, parametros);
+        }
+
         // Consulta 4 (Martina): butacas de salas 2D/3D sin reservas ni facturas
         public DataTable ButacasSinUso()
         {
@@ -91,6 +133,7 @@ namespace Cine_proyecto.Dao
            
             return acceso.ConsultarBD(sql, parametros);
         }
+        //consu
     }
     
 }

@@ -10,7 +10,7 @@ namespace Cine_proyecto.Dao
 {
     internal class AccesoDatos
     {
-        private string CadenaConexion = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=cine_proyecto;Integrated Security=True"; //Properties.Resources.CadenaConexion;
+        private string CadenaConexion = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=CINE_BD1;Integrated Security=True;Trust Server Certificate=True"; //Properties.Resources.CadenaConexion;
         private SqlConnection conexion;
         private SqlCommand comando;
         private SqlDataReader lector;

@@ -53,9 +53,6 @@ namespace Cine_proyecto.Servicios
             return dao.OcupacionFuncion(idFuncion);
         }
 
- 
-
-   
 
         // Consulta 6 (Santiago): películas/mes con recaudación sobre el promedio
 

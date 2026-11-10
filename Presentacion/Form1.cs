@@ -34,8 +34,14 @@ namespace Cine_proyecto
 
         private void btnConsulta1_Click(object sender, EventArgs e)
         {
-            Consulta1 frmC1 =  new Consulta1();
+            Consulta1 frmC1 = new Consulta1();
             frmC1.ShowDialog();
+        }
+
+        private void consulta4btn_Click(object sender, EventArgs e)
+        {
+            Consulta4 frmC4 = new Consulta4();
+            frmC4.ShowDialog();
         }
     }
 }

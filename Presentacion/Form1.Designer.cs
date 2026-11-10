@@ -32,11 +32,12 @@
             consulta2btn = new Button();
             button1 = new Button();
             btnConsulta1 = new Button();
+            consulta4btn = new Button();
             SuspendLayout();
             // 
             // consulta6btn
             // 
-            consulta6btn.Location = new Point(98, 120);
+            consulta6btn.Location = new Point(98, 284);
             consulta6btn.Name = "consulta6btn";
             consulta6btn.Size = new Size(141, 30);
             consulta6btn.TabIndex = 0;
@@ -46,7 +47,7 @@
             // 
             // consulta2btn
             // 
-            consulta2btn.Location = new Point(98, 183);
+            consulta2btn.Location = new Point(98, 146);
             consulta2btn.Name = "consulta2btn";
             consulta2btn.Size = new Size(141, 30);
             consulta2btn.TabIndex = 1;
@@ -57,7 +58,7 @@
             // button1
             // 
             button1.BackgroundImageLayout = ImageLayout.Center;
-            button1.Location = new Point(98, 240);
+            button1.Location = new Point(98, 248);
             button1.Name = "button1";
             button1.Size = new Size(141, 30);
             button1.TabIndex = 2;
@@ -68,7 +69,7 @@
             // btnConsulta1
             // 
             btnConsulta1.BackgroundImageLayout = ImageLayout.Center;
-            btnConsulta1.Location = new Point(98, 299);
+            btnConsulta1.Location = new Point(98, 110);
             btnConsulta1.Name = "btnConsulta1";
             btnConsulta1.Size = new Size(141, 30);
             btnConsulta1.TabIndex = 3;
@@ -76,11 +77,23 @@
             btnConsulta1.UseVisualStyleBackColor = true;
             btnConsulta1.Click += btnConsulta1_Click;
             // 
+            // consulta4btn
+            // 
+            consulta4btn.BackgroundImageLayout = ImageLayout.Center;
+            consulta4btn.Location = new Point(98, 212);
+            consulta4btn.Name = "consulta4btn";
+            consulta4btn.Size = new Size(141, 30);
+            consulta4btn.TabIndex = 4;
+            consulta4btn.Text = "Consulta 4";
+            consulta4btn.UseVisualStyleBackColor = true;
+            consulta4btn.Click += consulta4btn_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(consulta4btn);
             Controls.Add(btnConsulta1);
             Controls.Add(button1);
             Controls.Add(consulta2btn);
@@ -97,5 +110,6 @@
         private Button consulta2btn;
         private Button button1;
         private Button btnConsulta1;
+        private Button consulta4btn;
     }
 }

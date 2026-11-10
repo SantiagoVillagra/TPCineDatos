@@ -27,7 +27,24 @@ namespace Cine_proyecto.Dao
             return acceso.ConsultarBD(sql, parametros);
         }
 
+        // Consulta 4 (Martina): butacas de salas 2D/3D sin reservas ni facturas
+        public DataTable ButacasSinUso()
+        {
+        string sql = @"
+            SELECT NumeroSala, TipoSala, FilaButaca, NumeroButaca, TotalReservas, TotalVentas
+            FROM vw_UsoButacasSalas
+            WHERE TotalReservas = 0
+              AND TotalVentas = 0
+              AND idSala IN (
+                  SELECT s.idSala
+                  FROM Salas s
+                  INNER JOIN TiposSala ts ON s.idTipoSala = ts.idTipoSala
+                  WHERE ts.descripcion IN ('2D', '3D')
+              )
+        ORDER BY NumeroSala, FilaButaca, NumeroButaca";
 
+    return acceso.ConsultarBD(sql);
+}
 
         // Consulta 5 (Matias): Filtro ID porcentaje de ocupación de una función
         public DataTable OcupacionFuncion(int idFuncion)

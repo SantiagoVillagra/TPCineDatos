@@ -45,6 +45,11 @@ namespace Cine_proyecto.Servicios
                 cantidadPeliculas, cantidadEntradas);
         }
 
+        // Consulta 4 (Martina): butacas de salas 2D/3D sin reservas ni facturas
+        public DataTable ButacasSinUso()
+        {
+            return dao.ButacasSinUso();
+        }
 
 
         // Consulta 5 (Matias): porcentaje de ocupación de una función

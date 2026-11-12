@@ -10,7 +10,7 @@ namespace Cine_proyecto.Dao
 {
     internal class AccesoDatos
     {
-        private string CadenaConexion = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=CINE_BD1;Integrated Security=True;Trust Server Certificate=True"; //Properties.Resources.CadenaConexion;
+        private string CadenaConexion = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=cine_proyecto;Integrated Security=True"; //Properties.Resources.CadenaConexion;
         private SqlConnection conexion;
         private SqlCommand comando;
         private SqlDataReader lector;
@@ -21,14 +21,23 @@ namespace Cine_proyecto.Dao
         }
         private void Conectar()
         {
-            conexion.Open();
+            //conexion.Open();
+            //comando = new SqlCommand();
+            //comando.Connection = conexion;
+            //comando.CommandType = CommandType.Text;
+            if (conexion.State != ConnectionState.Open)
+                conexion.Open();
+
             comando = new SqlCommand();
             comando.Connection = conexion;
             comando.CommandType = CommandType.Text;
         }
         public void Desconectar()
         {
-            conexion.Close();
+            //conexion.Close();
+
+            if (conexion.State != ConnectionState.Closed)
+                conexion.Close();
         }
         public DataTable ConsultarTabla(string nombreTabla)
         {
@@ -41,11 +50,24 @@ namespace Cine_proyecto.Dao
         }
         public DataTable ConsultarBD(string consultaSQL)
         {
+            //DataTable tabla = new DataTable();
+            //this.Conectar();
+            //comando.CommandText = consultaSQL;
+            //tabla.Load(comando.ExecuteReader());
+            //this.Desconectar();
+            //return tabla;
+
             DataTable tabla = new DataTable();
-            this.Conectar();
-            comando.CommandText = consultaSQL;
-            tabla.Load(comando.ExecuteReader());
-            this.Desconectar();
+            try
+            {
+                this.Conectar();
+                comando.CommandText = consultaSQL;
+                tabla.Load(comando.ExecuteReader());
+            }
+            finally
+            {
+                this.Desconectar();
+            }
             return tabla;
         }
         public int ActualizarBD(string consultaSQL)
@@ -73,17 +95,36 @@ namespace Cine_proyecto.Dao
 
         public DataTable ConsultarBD(string consultaSQL, List<Parametro> lista)
         {
+            //DataTable tabla = new DataTable();
+            //this.Conectar();
+            //comando.Parameters.Clear();
+            //comando.CommandText = consultaSQL;
+            //foreach (Parametro p in lista)
+            //{
+            //    comando.Parameters.AddWithValue(p.Nombre, p.Valor);
+            //}
+            //tabla.Load(comando.ExecuteReader());
+            //comando.Parameters.Clear();
+            //this.Desconectar();
+            //return tabla;
+
             DataTable tabla = new DataTable();
-            this.Conectar();
-            comando.Parameters.Clear();
-            comando.CommandText = consultaSQL;
-            foreach (Parametro p in lista)
+            try
             {
-                comando.Parameters.AddWithValue(p.Nombre, p.Valor);
+                this.Conectar();
+                comando.Parameters.Clear();
+                comando.CommandText = consultaSQL;
+                foreach (Parametro p in lista)
+                {
+                    comando.Parameters.AddWithValue(p.Nombre, p.Valor);
+                }
+                tabla.Load(comando.ExecuteReader());
+                comando.Parameters.Clear();
             }
-            tabla.Load(comando.ExecuteReader());
-            comando.Parameters.Clear();
-            this.Desconectar();
+            finally
+            {
+                this.Desconectar();
+            }
             return tabla;
         }
 

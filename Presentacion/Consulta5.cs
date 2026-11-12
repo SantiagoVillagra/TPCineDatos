@@ -1,124 +1,208 @@
-﻿using Cine_proyecto.Servicios;
+﻿//using Cine_proyecto.Servicios;
+//using Cine_proyecto.Utilidades.Cine_proyecto.Utilidades; // Ajusta según el namespace exacto de tu clase Estilos
+//using System;
+//using System.Data;
+//using System.Drawing;
+//using System.Windows.Forms;
+
+//namespace Cine_proyecto.Presentacion
+//{
+//    public partial class Consulta5 : Form
+//    {
+//        private readonly cineServicio servicio = new cineServicio();
+
+//        public Consulta5()
+//        {
+//            InitializeComponent();
+//            ConfigurarFormulario();
+//        }
+
+//        private void ConfigurarFormulario()
+//        {
+//            // 1. Aplicar estilos generales definidos en tu clase Estilos
+//            Estilos.AplicarForm(this);
+//            Estilos.AplicarTitulo(lblTitulo);
+//            Estilos.AplicarBotonPrimario(consultaBtn);
+//            Estilos.AplicarBotonSecundario(limpiarBtn);
+//            Estilos.AplicarBotonSecundario(salirBtn);
+//            Estilos.AplicarGrilla(dgvResultados);
+
+//            // 2. Configurar las columnas de la grilla de forma programática
+//            ConfigurarColumnasGrilla();
+//        }
+
+//        private void ConfigurarColumnasGrilla()
+//        {
+//            dgvResultados.Columns.Clear();
+//            dgvResultados.AutoGenerateColumns = false;
+
+//            dgvResultados.Columns.Add(new DataGridViewTextBoxColumn()
+//            {
+//                Name = "colIdFuncion",
+//                HeaderText = "ID Función",
+//                DataPropertyName = "idFuncion"
+//            });
+
+//            dgvResultados.Columns.Add(new DataGridViewTextBoxColumn()
+//            {
+//                Name = "colPelicula",
+//                HeaderText = "Película",
+//                DataPropertyName = "pelicula"
+//            });
+
+//            dgvResultados.Columns.Add(new DataGridViewTextBoxColumn()
+//            {
+//                Name = "colEntradas",
+//                HeaderText = "Entradas vendidas",
+//                DataPropertyName = "entradasVendidas"
+//            });
+
+//            dgvResultados.Columns.Add(new DataGridViewTextBoxColumn()
+//            {
+//                Name = "colCapacidad",
+//                HeaderText = "Capacidad",
+//                DataPropertyName = "capacidad"
+//            });
+
+//            dgvResultados.Columns.Add(new DataGridViewTextBoxColumn()
+//            {
+//                Name = "colOcupacion",
+//                HeaderText = "Ocupación (%)",
+//                DataPropertyName = "porcentajeOcupacion"
+//            });
+//        }
+
+//        private void consultaBtn_Click(object sender, EventArgs e)
+//        {
+//            //int idFuncion = (int)nudIdFuncion.Value;
+
+//            //// Llamada al servicio con tu base de datos
+//            //DataTable tabla = servicio.OcupacionFuncion(idFuncion);
+
+//            //dgvResultados.DataSource = tabla;
+
+//            //if (tabla == null || tabla.Rows.Count == 0)
+//            //{
+//            //    MessageBox.Show(
+//            //        "No se encontraron resultados para esa función.",
+//            //        "Sin resultados",
+//            //        MessageBoxButtons.OK,
+//            //        MessageBoxIcon.Information
+//            //    );
+//            //}
+//            int idFuncion = (int)nudIdFuncion.Value;
+
+//            DataTable tabla = servicio.OcupacionFuncion(idFuncion);
+
+//            // Asignamos los datos
+//            dgvResultados.DataSource = tabla;
+
+//            // Forzamos la aplicación de estilos a las columnas generadas
+//            Estilos.AplicarGrilla(dgvResultados);
+
+//            if (tabla == null || tabla.Rows.Count == 0)
+//            {
+//                MessageBox.Show(
+//                    "No se encontraron resultados para esa función.",
+//                    "Sin resultados",
+//                    MessageBoxButtons.OK,
+//                    MessageBoxIcon.Information
+//                );
+//            }
+
+
+
+//        }
+
+//        private void limpiarBtn_Click(object sender, EventArgs e)
+//        {
+//            nudIdFuncion.Value = nudIdFuncion.Minimum;
+//            dgvResultados.DataSource = null;
+//        }
+
+//        private void salirBtn_Click(object sender, EventArgs e)
+//        {
+//            this.Close();
+//        }
+//    }
+//}
+
+using Cine_proyecto.Servicios;
+using Cine_proyecto.Utilidades.Cine_proyecto.Utilidades;
 using System;
 using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
+
 namespace Cine_proyecto.Presentacion
 {
     public partial class Consulta5 : Form
     {
         private readonly cineServicio servicio = new cineServicio();
 
-        private Label lblTitulo;
-        private Label lblIdFuncion;
-        private NumericUpDown nudIdFuncion;
-        private Button btnConsultar;
-        private Button btnLimpiar;
-        private Button btnSalir;
-        private DataGridView dgvResultados;
-
         public Consulta5()
         {
-
-            GenerarFormulario();
-        }
-
-        private void GenerarFormulario()
-        {
-            this.Text = "Consulta de ocupación por función";
-            this.Size = new Size(850, 500);
-            this.StartPosition = FormStartPosition.CenterScreen;
-
-            lblTitulo = new Label();
-            lblTitulo.Text = "Ocupación de funciones";
-            lblTitulo.Font = new Font("Arial", 16, FontStyle.Bold);
-            lblTitulo.Location = new Point(25, 20);
-            lblTitulo.AutoSize = true;
-
-            lblIdFuncion = new Label();
-            lblIdFuncion.Text = "ID de función:";
-            lblIdFuncion.Location = new Point(25, 75);
-            lblIdFuncion.AutoSize = true;
-
-            nudIdFuncion = new NumericUpDown();
-            nudIdFuncion.Location = new Point(120, 72);
-            nudIdFuncion.Minimum = 1;
-            nudIdFuncion.Maximum = 999999;
-            nudIdFuncion.Value = 1;
-
-            btnConsultar = new Button();
-            btnConsultar.Text = "Consultar";
-            btnConsultar.Location = new Point(280, 70);
-            btnConsultar.Click += btnConsultar_Click;
-
-            btnLimpiar = new Button();
-            btnLimpiar.Text = "Limpiar";
-            btnLimpiar.Location = new Point(380, 70);
-            btnLimpiar.Click += btnLimpiar_Click;
-
-            btnSalir = new Button();
-            btnSalir.Text = "Salir";
-            btnSalir.Location = new Point(480, 70);
-            btnSalir.Click += btnSalir_Click;
-
-            dgvResultados = new DataGridView();
-            dgvResultados.Location = new Point(25, 120);
-            dgvResultados.Size = new Size(780, 300);
+            InitializeComponent();
             dgvResultados.AutoGenerateColumns = false;
-            dgvResultados.AllowUserToAddRows = false;
-            dgvResultados.ReadOnly = true;
-            dgvResultados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            dgvResultados.Columns.Add("colIdFuncion", "ID Función");
-            dgvResultados.Columns["colIdFuncion"].DataPropertyName = "idFuncion";
-
-            dgvResultados.Columns.Add("colPelicula", "Película");
-            dgvResultados.Columns["colPelicula"].DataPropertyName = "pelicula";
-
-            dgvResultados.Columns.Add("colEntradas", "Entradas vendidas");
-            dgvResultados.Columns["colEntradas"].DataPropertyName = "entradasVendidas";
-
-            dgvResultados.Columns.Add("colCapacidad", "Capacidad");
-            dgvResultados.Columns["colCapacidad"].DataPropertyName = "capacidad";
-
-            dgvResultados.Columns.Add("colOcupacion", "Ocupación (%)");
-            dgvResultados.Columns["colOcupacion"].DataPropertyName = "porcentajeOcupacion";
-
-            this.Controls.Add(lblTitulo);
-            this.Controls.Add(lblIdFuncion);
-            this.Controls.Add(nudIdFuncion);
-            this.Controls.Add(btnConsultar);
-            this.Controls.Add(btnLimpiar);
-            this.Controls.Add(btnSalir);
-            this.Controls.Add(dgvResultados);
+            Load += Consulta5_Load; // conecta el Load por código
         }
 
-        private void btnConsultar_Click(object sender, EventArgs e)
+        private void Consulta5_Load(object? sender, EventArgs e)
         {
-            int idFuncion = (int)nudIdFuncion.Value;
+            // Orden de acople: primero lo de arriba/abajo, el Fill al final
+            panelPie.BringToFront();
+            panelTitulo.BringToFront();
+            panelFiltros.BringToFront();
+            panelGrilla.BringToFront();
 
-            DataTable tabla = servicio.OcupacionFuncion(idFuncion);
+            // Estilo (igual en todos los forms)
+            Estilos.AplicarForm(this);
+            Estilos.AplicarTitulo(lblTitulo);
+            Estilos.AplicarBotonPrimario(consultaBtn);
+            Estilos.AplicarBotonSecundario(limpiarBtn);
+            Estilos.AplicarBotonSecundario(salirBtn);
+            Estilos.AplicarGrilla(dgvResultados);
 
-            dgvResultados.DataSource = tabla;
+            // Reconectar eventos (se pierden al cortar/pegar en el diseñador)
+            consultaBtn.Click -= consultaBtn_Click; consultaBtn.Click += consultaBtn_Click;
+            limpiarBtn.Click -= limpiarBtn_Click; limpiarBtn.Click += limpiarBtn_Click;
+            salirBtn.Click -= salirBtn_Click; salirBtn.Click += salirBtn_Click;
+        }
 
-            if (tabla.Rows.Count == 0)
+        private void consultaBtn_Click(object? sender, EventArgs e)
+        {
+            try
             {
-                MessageBox.Show(
-                    "No se encontraron resultados para esa función.",
-                    "Sin resultados",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
+                int idFuncion = (int)nudIdFuncion.Value;
+
+                DataTable tabla = servicio.OcupacionFuncion(idFuncion);
+
+                dgvResultados.DataSource = tabla;
+                dgvResultados.ClearSelection();
+
+                if (tabla == null || tabla.Rows.Count == 0)
+                {
+                    MessageBox.Show(
+                        "No se encontraron resultados para esa función.",
+                        "Sin resultados",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo ejecutar la consulta.\n\n" + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
+        private void limpiarBtn_Click(object? sender, EventArgs e)
         {
-            nudIdFuncion.Value = 1;
+            nudIdFuncion.Value = nudIdFuncion.Minimum;
             dgvResultados.DataSource = null;
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void salirBtn_Click(object? sender, EventArgs e)
         {
             this.Close();
         }

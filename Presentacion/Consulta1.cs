@@ -1,5 +1,7 @@
 ﻿using Cine_proyecto.Negocio;
 using Cine_proyecto.Servicios;
+using Cine_proyecto.Utilidades;
+using Cine_proyecto.Utilidades.Cine_proyecto.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,11 +23,26 @@ namespace Cine_proyecto.Presentacion
 
         private void Consulta1_Load(object sender, EventArgs e)
         {
+            panelPie.BringToFront();
+            panelTitulo.BringToFront();
+            panelFiltros.BringToFront();
+            panelGrilla.BringToFront();
+
+
+            // Estilo (siempre igual en todos los forms)
+            Estilos.AplicarForm(this);
+            Estilos.AplicarTitulo(lblTitulo);
+            Estilos.AplicarBotonPrimario(btnConsultar);
+            Estilos.AplicarBotonSecundario(btnSalir);
+            Estilos.AplicarGrilla(dgvResultados);
+
+            // Lo que ya tenías
             cargarCombos();
             cBoxMes.SelectedIndex = 0;
             cBoxAnio.SelectedItem = DateTime.Now.Year.ToString();
-            dgvResultados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvResultados.MultiSelect = false;
+            //cBoxAnio.SelectedItem = DateTime.Now.Year;
+
+
         }
 
 
@@ -91,16 +108,19 @@ namespace Cine_proyecto.Presentacion
                 {
                     dgvResultados.Rows.Add(d.NumeroSala, d.TipoSala, d.CantFunciones, d.EntradasVendidas, d.Promedioentradas);
                 }
+                if (lConsulta1.Count == 0)
+                    MessageBox.Show("No hay datos para el período seleccionado.", "Sin resultados",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Desea cerrar la consulta?",
-                "SALIR", MessageBoxButtons.YesNo, MessageBoxIcon.Question,
-                MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+        "SALIR", MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+        MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                this.Dispose();
+                this.Close();
             }
         }
     }

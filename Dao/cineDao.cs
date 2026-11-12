@@ -70,23 +70,31 @@ namespace Cine_proyecto.Dao
         }
 
         // Consulta 4 (Martina): butacas de salas 2D/3D sin reservas ni facturas
-        public DataTable ButacasSinUso()
+        public DataTable ButacasSinUso(int? numeroSala, string? tipoSala)
         {
-        string sql = @"
-            SELECT NumeroSala, TipoSala, FilaButaca, NumeroButaca, TotalReservas, TotalVentas
-            FROM vw_UsoButacasSalas
-            WHERE TotalReservas = 0
-              AND TotalVentas = 0
-              AND idSala IN (
-                  SELECT s.idSala
-                  FROM Salas s
-                  INNER JOIN TiposSala ts ON s.idTipoSala = ts.idTipoSala
-                  WHERE ts.descripcion IN ('2D', '3D')
-              )
+            string sql = @"
+        SELECT NumeroSala, TipoSala, FilaButaca, NumeroButaca, TotalReservas, TotalVentas
+        FROM vw_UsoButacasSalas
+        WHERE TotalReservas = 0
+          AND TotalVentas = 0
+          AND idSala IN (
+              SELECT s.idSala
+              FROM Salas s
+              INNER JOIN TiposSala ts ON s.idTipoSala = ts.idTipoSala
+              WHERE ts.descripcion IN ('2D', '3D')
+          )
+          AND (@numeroSala IS NULL OR NumeroSala = @numeroSala)
+          AND (@tipoSala   IS NULL OR TipoSala   = @tipoSala)
         ORDER BY NumeroSala, FilaButaca, NumeroButaca";
 
-    return acceso.ConsultarBD(sql);
-}
+            List<Parametro> lista = new List<Parametro>
+    {
+        new Parametro("@numeroSala", numeroSala ),
+        new Parametro("@tipoSala",   tipoSala )
+    };
+
+            return acceso.ConsultarBD(sql, lista);
+        }
 
         // Consulta 5 (Matias): Filtro ID porcentaje de ocupación de una función
         public DataTable OcupacionFuncion(int idFuncion)

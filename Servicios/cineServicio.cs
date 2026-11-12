@@ -52,9 +52,9 @@ namespace Cine_proyecto.Servicios
         }
 
         // Consulta 4 (Martina): butacas de salas 2D/3D sin reservas ni facturas
-        public DataTable ButacasSinUso()
+        public DataTable ButacasSinUso(int? numeroSala, string? tipoSala)
         {
-            return dao.ButacasSinUso();
+            return dao.ButacasSinUso(numeroSala,tipoSala);
         }
 
 

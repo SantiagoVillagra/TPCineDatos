@@ -204,7 +204,12 @@ namespace Cine_proyecto.Presentacion
 
         private void salirBtn_Click(object? sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("¿Desea salir de la consulta?", "SALIR",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

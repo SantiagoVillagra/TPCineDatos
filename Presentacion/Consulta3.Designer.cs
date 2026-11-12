@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dgvPeliculas = new DataGridView();
             ColumnPelicula = new DataGridViewTextBoxColumn();
             columnTipoSala = new DataGridViewTextBoxColumn();
@@ -47,6 +47,7 @@
             panelTitulo = new Panel();
             panelFiltros = new Panel();
             panelGrilla = new Panel();
+            btnLimpiar = new Button();
             lblTitulo = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvPeliculas).BeginInit();
             panelPie.SuspendLayout();
@@ -54,16 +55,6 @@
             panelFiltros.SuspendLayout();
             panelGrilla.SuspendLayout();
             SuspendLayout();
-            // 
-            // lblTitulo
-            // 
-            lblTitulo.AutoSize = true;
-            lblTitulo.Location = new Point(41, 19);
-            lblTitulo.Margin = new Padding(2, 0, 2, 0);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(228, 15);
-            lblTitulo.TabIndex = 12;
-            lblTitulo.Text = "Análisis anual de rendimiento de películas";
             // 
             // dgvPeliculas
             // 
@@ -107,8 +98,8 @@
             // ColumnRecaudacionTotal
             // 
             ColumnRecaudacionTotal.DataPropertyName = "RecaudacionTotal";
-            dataGridViewCellStyle1.Format = "'$' #,0.00";
-            ColumnRecaudacionTotal.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Format = "'$' #,0.00";
+            ColumnRecaudacionTotal.DefaultCellStyle = dataGridViewCellStyle5;
             ColumnRecaudacionTotal.FillWeight = 20F;
             ColumnRecaudacionTotal.HeaderText = "Recaudación total";
             ColumnRecaudacionTotal.MinimumWidth = 8;
@@ -118,9 +109,9 @@
             // ColumnRendimiento
             // 
             ColumnRendimiento.DataPropertyName = "Rendimiento";
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            ColumnRendimiento.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            ColumnRendimiento.DefaultCellStyle = dataGridViewCellStyle6;
             ColumnRendimiento.FillWeight = 15F;
             ColumnRendimiento.HeaderText = "Rendimiento";
             ColumnRendimiento.MinimumWidth = 8;
@@ -194,6 +185,7 @@
             // 
             // panelPie
             // 
+            panelPie.Controls.Add(btnLimpiar);
             panelPie.Controls.Add(btnSalir);
             panelPie.Dock = DockStyle.Bottom;
             panelPie.Location = new Point(0, 399);
@@ -210,6 +202,16 @@
             panelTitulo.Name = "panelTitulo";
             panelTitulo.Size = new Size(918, 60);
             panelTitulo.TabIndex = 14;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.AutoSize = true;
+            lblTitulo.Location = new Point(41, 19);
+            lblTitulo.Margin = new Padding(2, 0, 2, 0);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(228, 15);
+            lblTitulo.TabIndex = 12;
+            lblTitulo.Text = "Análisis anual de rendimiento de películas";
             // 
             // panelFiltros
             // 
@@ -233,6 +235,17 @@
             panelGrilla.Padding = new Padding(15, 10, 15, 10);
             panelGrilla.Size = new Size(918, 269);
             panelGrilla.TabIndex = 16;
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.Dock = DockStyle.Left;
+            btnLimpiar.Location = new Point(20, 10);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(75, 35);
+            btnLimpiar.TabIndex = 11;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // Consulta3
             // 
@@ -280,5 +293,6 @@
         private DataGridViewTextBoxColumn ColumnEntradasVendidas;
         private DataGridViewTextBoxColumn ColumnRecaudacionTotal;
         private DataGridViewTextBoxColumn ColumnRendimiento;
+        private Button btnLimpiar;
     }
 }

@@ -38,15 +38,15 @@
             btnLimpiar = new Button();
             btnSalir = new Button();
             dgvResultados = new DataGridView();
-            panelFiltros = new Panel();
-            panelTitulo = new Panel();
-            panelPie = new Panel();
-            panelGrilla = new Panel();
             colCliente = new DataGridViewTextBoxColumn();
             colFacturas = new DataGridViewTextBoxColumn();
             colEntradas = new DataGridViewTextBoxColumn();
             colPeliculas = new DataGridViewTextBoxColumn();
             colImporteTotal = new DataGridViewTextBoxColumn();
+            panelFiltros = new Panel();
+            panelTitulo = new Panel();
+            panelPie = new Panel();
+            panelGrilla = new Panel();
             ((System.ComponentModel.ISupportInitialize)nudCantidadPeliculas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudCantidadEntradas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvResultados).BeginInit();
@@ -59,7 +59,7 @@
             // nudCantidadPeliculas
             // 
             nudCantidadPeliculas.Location = new Point(15, 35);
-            nudCantidadPeliculas.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
+            nudCantidadPeliculas.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudCantidadPeliculas.Name = "nudCantidadPeliculas";
             nudCantidadPeliculas.Size = new Size(170, 23);
             nudCantidadPeliculas.TabIndex = 0;
@@ -68,7 +68,7 @@
             // nudCantidadEntradas
             // 
             nudCantidadEntradas.Location = new Point(230, 35);
-            nudCantidadEntradas.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
+            nudCantidadEntradas.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudCantidadEntradas.Name = "nudCantidadEntradas";
             nudCantidadEntradas.Size = new Size(170, 23);
             nudCantidadEntradas.TabIndex = 1;
@@ -83,7 +83,6 @@
             lblTitulo.Size = new Size(434, 30);
             lblTitulo.TabIndex = 2;
             lblTitulo.Text = "Análisis de clientes con compras recurrentes";
-            
             // 
             // lblCantidadPeliculas
             // 
@@ -149,49 +148,6 @@
             dgvResultados.Size = new Size(776, 150);
             dgvResultados.TabIndex = 8;
             // 
-            // panelFiltros
-            // 
-            panelFiltros.Controls.Add(nudCantidadEntradas);
-            panelFiltros.Controls.Add(nudCantidadPeliculas);
-            panelFiltros.Controls.Add(lblCantidadPeliculas);
-            panelFiltros.Controls.Add(lblCantidadEntradas);
-            panelFiltros.Controls.Add(btnConsultar);
-            panelFiltros.Dock = DockStyle.Top;
-            panelFiltros.Location = new Point(0, 0);
-            panelFiltros.Name = "panelFiltros";
-            panelFiltros.Size = new Size(800, 80);
-            panelFiltros.TabIndex = 10;
-            // 
-            // panelTitulo
-            // 
-            panelTitulo.Controls.Add(lblTitulo);
-            panelTitulo.Dock = DockStyle.Top;
-            panelTitulo.Location = new Point(0, 80);
-            panelTitulo.Name = "panelTitulo";
-            panelTitulo.Size = new Size(800, 60);
-            panelTitulo.TabIndex = 11;
-            // 
-            // panelPie
-            // 
-            panelPie.Controls.Add(btnLimpiar);
-            panelPie.Controls.Add(btnSalir);
-            panelPie.Dock = DockStyle.Bottom;
-            panelPie.Location = new Point(0, 395);
-            panelPie.Name = "panelPie";
-            panelPie.Padding = new Padding(20, 10, 20, 10);
-            panelPie.Size = new Size(800, 55);
-            panelPie.TabIndex = 12;
-            // 
-            // panelGrilla
-            // 
-            panelGrilla.Controls.Add(dgvResultados);
-            panelGrilla.Dock = DockStyle.Fill;
-            panelGrilla.Location = new Point(0, 140);
-            panelGrilla.Name = "panelGrilla";
-            panelGrilla.Padding = new Padding(15, 10, 15, 10);
-            panelGrilla.Size = new Size(800, 255);
-            panelGrilla.TabIndex = 13;
-            // 
             // colCliente
             // 
             colCliente.DataPropertyName = "cliente";
@@ -234,6 +190,49 @@
             colImporteTotal.HeaderText = "Importe total";
             colImporteTotal.Name = "colImporteTotal";
             colImporteTotal.ReadOnly = true;
+            // 
+            // panelFiltros
+            // 
+            panelFiltros.Controls.Add(nudCantidadEntradas);
+            panelFiltros.Controls.Add(nudCantidadPeliculas);
+            panelFiltros.Controls.Add(lblCantidadPeliculas);
+            panelFiltros.Controls.Add(lblCantidadEntradas);
+            panelFiltros.Controls.Add(btnConsultar);
+            panelFiltros.Dock = DockStyle.Top;
+            panelFiltros.Location = new Point(0, 0);
+            panelFiltros.Name = "panelFiltros";
+            panelFiltros.Size = new Size(800, 80);
+            panelFiltros.TabIndex = 10;
+            // 
+            // panelTitulo
+            // 
+            panelTitulo.Controls.Add(lblTitulo);
+            panelTitulo.Dock = DockStyle.Top;
+            panelTitulo.Location = new Point(0, 80);
+            panelTitulo.Name = "panelTitulo";
+            panelTitulo.Size = new Size(800, 60);
+            panelTitulo.TabIndex = 11;
+            // 
+            // panelPie
+            // 
+            panelPie.Controls.Add(btnLimpiar);
+            panelPie.Controls.Add(btnSalir);
+            panelPie.Dock = DockStyle.Bottom;
+            panelPie.Location = new Point(0, 395);
+            panelPie.Name = "panelPie";
+            panelPie.Padding = new Padding(20, 10, 20, 10);
+            panelPie.Size = new Size(800, 55);
+            panelPie.TabIndex = 12;
+            // 
+            // panelGrilla
+            // 
+            panelGrilla.Controls.Add(dgvResultados);
+            panelGrilla.Dock = DockStyle.Fill;
+            panelGrilla.Location = new Point(0, 140);
+            panelGrilla.Name = "panelGrilla";
+            panelGrilla.Padding = new Padding(15, 10, 15, 10);
+            panelGrilla.Size = new Size(800, 255);
+            panelGrilla.TabIndex = 13;
             // 
             // Consulta2
             // 

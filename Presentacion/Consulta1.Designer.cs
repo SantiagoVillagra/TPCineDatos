@@ -44,6 +44,7 @@
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
             panelPie = new Panel();
+            btnLimpiar = new Button();
             btnSalir = new Button();
             panelFiltros.SuspendLayout();
             panelTitulo.SuspendLayout();
@@ -178,6 +179,7 @@
             // 
             // panelPie
             // 
+            panelPie.Controls.Add(btnLimpiar);
             panelPie.Controls.Add(btnSalir);
             panelPie.Dock = DockStyle.Bottom;
             panelPie.Location = new Point(0, 318);
@@ -185,6 +187,17 @@
             panelPie.Padding = new Padding(10, 10, 20, 10);
             panelPie.Size = new Size(833, 55);
             panelPie.TabIndex = 10;
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.Dock = DockStyle.Left;
+            btnLimpiar.Location = new Point(10, 10);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(75, 35);
+            btnLimpiar.TabIndex = 8;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // btnSalir
             // 
@@ -237,5 +250,6 @@
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
+        private Button btnLimpiar;
     }
 }

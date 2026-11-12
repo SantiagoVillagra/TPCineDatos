@@ -141,5 +141,12 @@ namespace Cine_proyecto.Presentacion
                 this.Close();
             }
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            dgvPeliculas.DataSource = null;
+            cboAnio.SelectedIndex = -1;
+            cboRendimiento.SelectedIndex = -1;
+        }
     }
 }

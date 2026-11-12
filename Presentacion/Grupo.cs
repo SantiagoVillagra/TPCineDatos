@@ -50,7 +50,7 @@ namespace Cine_proyecto.Presentacion
 
             dgvResultados.Rows.Add("Alvarez", "Daniel", 430111);
             dgvResultados.Rows.Add("Iriarte", "José", 430184);
-            dgvResultados.Rows.Add("Machio Steffen", "Valentina", 430309);
+            dgvResultados.Rows.Add("Maschio Steffen", "Valentina", 430309);
             dgvResultados.Rows.Add("Nievas", "Martina Elin", 430274);
             dgvResultados.Rows.Add("Poete Lafragette", "Matías", 430200);
             dgvResultados.Rows.Add("Villagra", "Santiago", 430087);

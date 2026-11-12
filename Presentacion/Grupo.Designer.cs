@@ -35,8 +35,8 @@
             lblTitulo = new Label();
             panelGrilla = new Panel();
             dgvResultados = new DataGridView();
-            Nombre = new DataGridViewTextBoxColumn();
             Apellido = new DataGridViewTextBoxColumn();
+            Nombre = new DataGridViewTextBoxColumn();
             Legajo = new DataGridViewTextBoxColumn();
             panelPie.SuspendLayout();
             panelTitulo.SuspendLayout();
@@ -104,24 +104,24 @@
             // dgvResultados
             // 
             dgvResultados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvResultados.Columns.AddRange(new DataGridViewColumn[] { Nombre, Apellido, Legajo });
+            dgvResultados.Columns.AddRange(new DataGridViewColumn[] { Apellido, Nombre, Legajo });
             dgvResultados.Location = new Point(95, 177);
             dgvResultados.Name = "dgvResultados";
             dgvResultados.Size = new Size(240, 150);
             dgvResultados.TabIndex = 0;
             dgvResultados.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // Nombre
-            // 
-            Nombre.FillWeight = 40F;
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
-            // 
             // Apellido
             // 
             Apellido.FillWeight = 40F;
             Apellido.HeaderText = "Apellido";
             Apellido.Name = "Apellido";
+            // 
+            // Nombre
+            // 
+            Nombre.FillWeight = 40F;
+            Nombre.HeaderText = "Nombre";
+            Nombre.Name = "Nombre";
             // 
             // Legajo
             // 
@@ -158,8 +158,8 @@
         private Label lblTitulo;
         private Panel panelGrilla;
         private DataGridView dgvResultados;
-        private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Apellido;
+        private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Legajo;
     }
 }

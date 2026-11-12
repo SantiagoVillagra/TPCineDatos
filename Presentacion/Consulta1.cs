@@ -123,5 +123,13 @@ namespace Cine_proyecto.Presentacion
                 this.Close();
             }
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+
+            cBoxMes.SelectedIndex = 0;
+            cBoxAnio.SelectedItem = DateTime.Now.Year;
+            dgvResultados.Rows.Clear();
+        }
     }
 }
